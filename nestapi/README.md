@@ -1,12 +1,12 @@
 # Configuración del .env
 
-# Configuración de la base de datos
+Configuración de la base de datos
 URL=localhost
 USUARIO=root
 PASSWORD=
 DBNAME=biblioteca_db
 
-# Configuración de JWT (clave de prueba)
+Configuración de JWT (clave de prueba)
 JWT_SECRET=secreto_de_prueba
 JWT_EXPIRES_IN=1h
 
