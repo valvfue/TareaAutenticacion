@@ -1,5 +1,5 @@
 async function getLibro(id) {
-    const res = await fetch(`http://localhost:5000/libro/${id}`)
+    const res = await fetch(`http://localhost:3001/libro/${id}`)
     if (!res.ok) return null
     return res.json()
   }

@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation"
 import LibroForm from "@/componentes/libroForm"
 
 async function getLibros() { //GET libros no necesita token
-  const res = await fetch("http://localhost:5000/libro")
+  const res = await fetch("http://localhost:3001/libro")
   if (!res.ok) throw new Error("Failed to fetch libros")
   return res.json()
 }
 
 async function getAutores() { //GET autores no necesita token
-  const res = await fetch("http://localhost:5000/autor")
+  const res = await fetch("http://localhost:3001/autor")
   if (!res.ok) throw new Error("Failed to fetch autores")
   return res.json()
 }
@@ -19,7 +19,7 @@ async function getAutores() { //GET autores no necesita token
 async function addLibro(formData) { //POST libros ncesita token
   const token = localStorage.getItem("token")
   if (!token) throw new Error("No token found")
-  const res = await fetch("http://localhost:5000/libro", {
+  const res = await fetch("http://localhost:3001/libro", {
     method: "POST",
     body: JSON.stringify({
       titulo: formData.get("titulo"),
@@ -39,7 +39,7 @@ async function deleteLibro(id) { //DELETE libros necesita token
   const token = localStorage.getItem("token")
   if (!token) throw new Error("No token found")
 
-  const res = await fetch(`http://localhost:5000/libro/${id}`, {
+  const res = await fetch(`http://localhost:3001/libro/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

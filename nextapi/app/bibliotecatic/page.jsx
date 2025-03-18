@@ -2,7 +2,7 @@ import Navbar from "@/componentes/navbar"
 import Link from "next/link"
 
 async function getLibros() {
-    const res = await fetch("http://localhost:5000/libro")
+    const res = await fetch("http://localhost:3001/libro")
     if (!res.ok) throw new Error("Failed to fetch libros")
     return res.json()
   }

@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import AutorForm from "@/componentes/autorForm";
 
 async function getAutores() {
-  const res = await fetch("http://localhost:5000/autor");
+  const res = await fetch("http://localhost:3001/autor");
   if (!res.ok) throw new Error("Error al obtener los autores");
   return res.json();
 }
@@ -13,7 +13,7 @@ async function addAutor(formData) {
   const token = localStorage.getItem("token");  // Obtener el token desde el localStorage
   if (!token) throw new Error("No se encontró el token");
 
-  const res = await fetch("http://localhost:5000/autor", {
+  const res = await fetch("http://localhost:3001/autor", {
     method: "POST",
     body: JSON.stringify({
       nombre: formData.get("nombre"),
@@ -33,7 +33,7 @@ async function deleteAutor(id) {
   const token = localStorage.getItem("token");  // Obtener el token desde el localStorage
   if (!token) throw new Error("No se encontró el token");
 
-  const res = await fetch(`http://localhost:5000/autor/${id}`, {
+  const res = await fetch(`http://localhost:3001/autor/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,  // Incluir el token en la cabecera Authorization
